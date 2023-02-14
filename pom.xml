@@ -33,6 +33,12 @@
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>checkstyle</groupId>
+			<artifactId>checkstyle</artifactId>
+			<version>5.0</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
