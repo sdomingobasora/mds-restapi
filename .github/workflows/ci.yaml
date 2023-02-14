@@ -19,7 +19,6 @@ jobs:
         env:
           # If set to false, it will only validate new/updated code
           VALIDATE_ALL_CODEBASE: true
-          JAVA_FILE_NAME: checkstyle.xml
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FILTER_REGEX_INCLUDE: .*src/.*
