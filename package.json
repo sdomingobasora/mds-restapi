@@ -7,7 +7,8 @@
   "scripts": {
     "start": "yarn build && cross-env NODE_ENV=production node dist/server.js",
     "build": "swc src -d dist --source-maps --copy-files",
-    "test": "jest --forceExit --detectOpenHandles",
+    "test:unit": "jest --forceExit --detectOpenHandles ./src/",
+    "test:e2e": "jest --forceExit --detectOpenHandles ./e2e/",
     "lint": "eslint --ext ts src/",
     "deploy:prod": "yarn start"
   },
