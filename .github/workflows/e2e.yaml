@@ -36,3 +36,5 @@ jobs:
         run: yarn --froze-lockfile
       - name: Run semantic release
         run: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
