@@ -45,4 +45,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout:v3
       - name: Build docker image
-        run: ./scripts/build_image.sh
+        run: ./scripts/build.sh

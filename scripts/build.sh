@@ -7,6 +7,6 @@ if [ -z "$TAG" ]; then
 fi
 
 docker build -t \
-  mds-restapi:$TAG \
+  githubstats/mds-restapi:$TAG \
   --build-arg GIT_TAG=$TAG \
   .
