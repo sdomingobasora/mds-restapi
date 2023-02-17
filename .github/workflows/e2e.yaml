@@ -1,0 +1,40 @@
+name: RestAPI Release
+on:
+  push:
+    branches:
+      - main
+      - preview
+jobs:
+  e2e:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-20.04]
+      fail-fast: true
+    runs-on: ${{ matrix.os }}
+    if: github.ref == 'refs/head/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Use node 18.14.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.0
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Run e2e tests
+        run: yarn test:e2e
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Use node 18.14.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.0
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Run semantic release
+        run: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

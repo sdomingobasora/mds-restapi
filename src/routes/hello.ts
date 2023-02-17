@@ -1,13 +1,8 @@
 import { Router } from 'express';
-
-let callNumber = 1;
+import * as handlers from '../handlers';
 
 const R = Router();
 
-R.get('/hello', (_, res) => {
-  res
-    .status(200)
-    .json(`Hello world! API Call number ${callNumber++} since last restarted!`);
-});
+R.get('/hello', handlers.helloHandler);
 
 export const HelloRouter = { router: R };

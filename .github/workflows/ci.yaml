@@ -1,0 +1,33 @@
+name: RestAPI CI
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Use node 18.14.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.0
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Lint project
+        run: yarn lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Use node 18.14.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.0
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Test project
+        run: yarn test:unit

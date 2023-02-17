@@ -7,10 +7,11 @@
   "scripts": {
     "start": "yarn build && cross-env NODE_ENV=production node dist/server.js",
     "build": "swc src -d dist --source-maps --copy-files",
-    "test": "jest --forceExit --detectOpenHandles",
-    "lint": "eslint --fix --ext ts src/",
-    "deploy:prod": "yarn build && pm2 start ecosystem.config.js --only prod",
-    "deploy:dev": "pm2 start ecosystem.config.js --only dev"
+    "test:unit": "jest --forceExit --detectOpenHandles ./src/",
+    "test:e2e": "jest --forceExit --detectOpenHandles ./e2e/",
+    "lint": "eslint --ext ts src/",
+    "deploy:prod": "yarn start",
+    "release": "semantic-release"
   },
   "dependencies": {
     "compression": "1.7.4",
@@ -24,6 +25,7 @@
     "jsonwebtoken": "8.5.1"
   },
   "devDependencies": {
+    "@codedependant/semantic-release-docker": "4.3.0",
     "@swc/cli": "0.1.57",
     "@swc/core": "1.2.220",
     "@swc/helpers": "0.4.14",
@@ -39,6 +41,7 @@
     "@types/supertest": "2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
+    "conventional-changelog-conventionalcommits": "5.0.0",
     "cross-env": "7.0.3",
     "eslint": "8.20.0",
     "eslint-config-prettier": "8.5.0",
@@ -50,10 +53,14 @@
     "node-gyp": "9.1.0",
     "pm2": "5.2.0",
     "prettier": "2.8.4",
+    "semantic-release": "20.1.0",
     "supertest": "6.2.4",
     "ts-jest": "28.0.7",
     "ts-node": "10.9.1",
     "tsc-alias": "1.7.0",
     "typescript": "4.7.4"
+  },
+  "volta": {
+    "node": "18.14.0"
   }
 }
