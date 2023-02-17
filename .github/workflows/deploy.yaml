@@ -22,7 +22,7 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Run e2e tests
         run: yarn test:e2e
-  tag-version:
+  release:
     runs-on: ubuntu-latest
     needs: e2e
     steps:
@@ -32,7 +32,7 @@ jobs:
           node-version: 18.14.0
       - name: Install dependencies
         run: yarn --frozen-lockfile
-      - name: Run semantic release
+      - name: Create release version
         run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
