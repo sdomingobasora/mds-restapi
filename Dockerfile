@@ -1,5 +1,5 @@
 # Common build stage
-FROM node:16.16.0
+FROM node:18.14.0
 
 COPY . ./app
 
