@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /** @type {import('semantic-release').Config} */
 module.exports = {
   branches: ['main', { name: 'preview', prerelease: true }],
@@ -17,4 +18,9 @@ module.exports = {
       },
     ],
   ],
+=======
+module.exports = {
+  branches: ['main'],
+  plugins: [['@semantic-release/npm', { npmPublish: false }]],
+>>>>>>> 387e599 (feat: add `semantic-release` automation (#15))
 };
