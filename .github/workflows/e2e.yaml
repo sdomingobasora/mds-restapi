@@ -11,6 +11,7 @@ jobs:
         os: [ubuntu-22.04, ubuntu-20.04]
       fail-fast: true
     runs-on: ${{ matrix.os }}
+    if: github.ref == 'refs/head/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
