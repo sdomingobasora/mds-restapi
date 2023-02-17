@@ -36,16 +36,8 @@ jobs:
         run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  build-image:
-    runs-on: ubuntu-latest
-    needs: tag-version
-    steps:
       - name: Build docker image
         run: ./scripts/build.sh
-  publish-image:
-    runs-on: ubuntu-latest
-    needs: build-image
-    steps:
       - name: Publish docker image
         run: |
           ./scripts/publish.sh ${{ secrets.DOCKERHUB_USERNAME }} ${{ secrets.DOCKERHUB_TOKEN }}
