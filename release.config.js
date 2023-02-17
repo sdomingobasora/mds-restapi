@@ -1,5 +1,6 @@
+/** @type {import('semantic-release').Config} */
 module.exports = {
-  branches: ['main', 'preview'],
+  branches: ['main', { name: 'preview', prerelease: true }],
   plugins: [
     ['@semantic-release/npm', { npmPublish: false }],
     [
