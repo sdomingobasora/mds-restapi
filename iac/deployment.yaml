@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: mds-restapi
-          image: docker.io/githubstats/mds-restapi:$TAG
+          image: docker.io/githubstats/mds-restapi
           ports:
             - containerPort: 3000
