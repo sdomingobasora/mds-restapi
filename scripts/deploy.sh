@@ -1,11 +1,12 @@
 #!/bin/bash
 
-TAG=$(git describe --tags --exact-match)
-COLON_TAG=:${TAG}
-if [ -z "$TAG" ]; then
-  echo "No tag provided"
-  exit 1
-fi
+# TAG=$(git describe --tags --exact-match)
+# COLON_TAG=:${TAG}
+# if [ -z "$TAG" ]; then
+#   echo "No tag provided"
+#   exit 1
+# fi
+TAG="v1.3.0"
 
 echo "Found tag -> $TAG"
 chmod +x ./bin/oc
@@ -16,7 +17,8 @@ YQ_BINARY="yq_linux_amd64"
 sudo wget https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/$YQ_BINARY -O /usr/bin/yq
 sudo chmod +x /usr/bin/yq
 
-yq -i '.spec.template.spec.containers[0].image += strenv(COLON_TAG)' ./iac/deployment.yaml
+COLON_TAG=":v1.3.0" yq -i ".spec.template.spec.containers[0].image += strenv(COLON_TAG)" ./iac/deployment.yaml
+cat ./iac/deployment.yaml
 
 # Login & deploy
 ./bin/oc login --token=$1 --server=$2
