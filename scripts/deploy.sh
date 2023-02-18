@@ -2,7 +2,12 @@
 
 TAG=$(git describe --tags --exact-match)
 COLON_TAG=:${TAG}
+if [ -z "$TAG" ]; then
+  echo "No tag provided"
+  exit 1
+fi
 
+echo "Found tag -> $TAG"
 chmod +x ./bin/oc
 
 # Install yq and parse YAML
