@@ -43,3 +43,6 @@ jobs:
       - name: Publish docker image
         run: |
           ./scripts/publish.sh ${{ secrets.DOCKERHUB_USERNAME }} ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Deploy docker image
+        run: |
+          ./scripts/deploy.sh ${{ secrets.OPENSHIFT_TOKEN }} ${{ secrets.OPENSHIFT_SERVER }}
