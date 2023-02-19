@@ -62,8 +62,7 @@ jobs:
           git config user.email "${{ github.email }}@users.noreply.github.com"
           git fetch
           git checkout preview
-          git pull
           git merge --squash main
-          git push
+          git push --force-with-lease
         env:
           GITHUB_TOKEN: ${{ github.GITHUB_TOKEN }}
