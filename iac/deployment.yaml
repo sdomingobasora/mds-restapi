@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mds-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mds-restapi
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mds-restapi
+    spec:
+      containers:
+        - name: mds-restapi
+          image: docker.io/githubstats/mds-restapi
+          ports:
+            - containerPort: 3000
