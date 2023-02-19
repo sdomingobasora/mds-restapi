@@ -50,3 +50,9 @@ The CI pipeline includes linting and running unit tests for each new PR.
 Additionally, it runs e2e tests, creates a new tag using semantic release,
 then creates an image and pushes it to docker hub to later deploy this
 image in an OpenShift cluster.
+
+## Preview
+
+There's a `preview` branch in which, whenever there's a new commit in `main`, it
+will be updated so that the image can be updated in a pre-production
+environment.
