@@ -5,7 +5,7 @@ COPY . ./app
 
 WORKDIR /app
 
-RUN yarn --frozen-lockfile
+RUN yarn --modules-folder ./node_modules --frozen-lockfile
 
 EXPOSE 3000
 
