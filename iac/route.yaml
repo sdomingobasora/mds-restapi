@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: hello-route
+  namespace: sergidomingo-dev
+  labels: {}
+spec:
+  to:
+    kind: Service
+    name: mds-service
+  tls: null
+  path: /hello
+  port:
+    targetPort: http

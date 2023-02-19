@@ -22,3 +22,4 @@ cat ./iac/deployment.yaml
 ./bin/oc login --token=$1 --server=$2
 ./bin/oc apply -f ./iac/deployment.yaml
 ./bin/oc apply -f ./iac/service.yaml
+./bin/oc apply -f ./iac/route.yaml
