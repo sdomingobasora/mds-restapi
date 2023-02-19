@@ -1,15 +1,18 @@
 # Common build stage
 FROM node:18.14.0
 
-COPY . ./app
+# Create node user
+RUN adduser node root
 
-# Give owner rights to the current user
-RUN chown -Rh node /app
-USER node
+COPY . ./app
 
 WORKDIR /app
 
-RUN yarn --modules-folder ./node_modules --frozen-lockfile
+RUN yarn --frozen-lockfile
+
+# Give owner rights to the current user
+RUN chmod -R 775 /app
+RUN chown -R node:root /app
 
 EXPOSE 3000
 
