@@ -60,8 +60,8 @@ jobs:
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.email }}@users.noreply.github.com"
-          git fetch origin preview:preview
-          git merge -c HEAD preview
-          git push origin preview
+          git checkout preview
+          git pull
+          git merge --squash main
         env:
           GITHUB_TOKEN: ${{ github.GITHUB_TOKEN }}
