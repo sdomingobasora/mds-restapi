@@ -11,7 +11,7 @@ module.exports = {
           { type: 'chore', release: 'patch' },
           { type: 'docs', release: 'patch' },
           { type: 'feat', release: 'minor' },
-          { type: 'fix', release: 'minor' },
+          { type: 'fix', release: 'patch' },
           { type: 'refactor', release: 'patch' },
         ],
       },

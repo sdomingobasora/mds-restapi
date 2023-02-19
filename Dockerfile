@@ -4,9 +4,8 @@ FROM node:18.14.0
 COPY . ./app
 
 # Give owner rights to the current user
-RUN echo $USER
-RUN chown -Rh $USER:$USER /app
-USER $USER
+RUN chown -Rh node /app
+USER node
 
 WORKDIR /app
 
