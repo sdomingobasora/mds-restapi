@@ -16,7 +16,6 @@ sudo wget https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/$YQ_BINA
 sudo chmod +x /usr/bin/yq
 
 COLON_TAG=":$TAG" yq -i ".spec.template.spec.containers[0].image += strenv(COLON_TAG)" ./iac/deployment.yaml
-cat ./iac/deployment.yaml
 
 # Login & deploy
 ./bin/oc login --token=$1 --server=$2
