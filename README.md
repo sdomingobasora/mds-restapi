@@ -32,8 +32,6 @@ yarn start
 curl http://127.0.0.1:3000/hello
 ```
 
-## Testing
-
 To run tests
 
 ```sh
